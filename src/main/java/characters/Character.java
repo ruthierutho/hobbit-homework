@@ -1,8 +1,5 @@
 package characters;
 
-import treasure.Treasure;
-
-import java.util.ArrayList;
 
 public abstract class Character {
     private String name;

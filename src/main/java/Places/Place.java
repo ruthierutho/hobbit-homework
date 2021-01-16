@@ -1,5 +1,6 @@
 package Places;
 
+import characters.Character;
 import treasure.Treasure;
 
 import java.util.ArrayList;
@@ -40,5 +41,21 @@ public abstract class Place {
 
     public void setTreasure(ArrayList<Treasure> treasure) {
         this.treasure = treasure;
+    }
+
+    public void addToEnemies(Character character){
+        this.enemies.add(character);
+    }
+
+    public void addToAdventurers(Character character){
+        this.adventurers.add(character);
+    }
+
+    public void addToTreasure(Treasure treasure){
+        this.treasure.add(treasure);
+    }
+
+    public void removeFromTreasure(Treasure treasure){
+        this.treasure.remove(treasure);
     }
 }

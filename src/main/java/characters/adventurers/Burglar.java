@@ -1,5 +1,7 @@
 package characters.adventurers;
 
+import Places.Place;
+import Places.UndergroundLake;
 import behaviours.IFight;
 import behaviours.IRiddle;
 import characters.Character;
@@ -29,7 +31,7 @@ public class Burglar extends Character implements IFight, IRiddle {
         this.weapon = weapon;
     }
 
-    public ArrayList<Treasure> getBag() {
+    public ArrayList<Treasure> getPocket() {
         return pocket;
     }
 
@@ -37,11 +39,10 @@ public class Burglar extends Character implements IFight, IRiddle {
         this.pocket.add(treasure);
     }
 
-//    public void burgle(Treasure treasure){
-//
-//       addToPocket(treasure);
-//
-//    }
+    public void burgle(Treasure treasure, Place place){
+       place.removeFromTreasure(treasure);
+       addToPocket(treasure);
+    }
 
     @Override
     public void fight(Weapon weapon, Character opponent) {

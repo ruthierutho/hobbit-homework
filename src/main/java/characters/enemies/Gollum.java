@@ -1,4 +1,12 @@
 package characters.enemies;
 
-public class Gollum {
+import characters.Character;
+import tools.Weapon;
+
+public class Gollum extends Character {
+
+    public Gollum(String name, int health, int energy) {
+        super(name, health, energy);
+
+    }
 }

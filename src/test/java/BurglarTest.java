@@ -23,14 +23,14 @@ public class BurglarTest {
     }
 
     @Test
-    public void canGetEmptyBag(){
-        assertEquals(0, hobbit.getBag().size());
+    public void canGetEmptyPocket(){
+        assertEquals(0, hobbit.getPocket().size());
     }
 
     @Test
     public void canAddTreasureToPocket(){
         hobbit.addToPocket(treasure);
-        assertEquals(1, hobbit.getBag().size());
+        assertEquals(1, hobbit.getPocket().size());
     }
 
     @Test

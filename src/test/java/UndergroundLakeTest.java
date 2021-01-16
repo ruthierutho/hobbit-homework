@@ -6,6 +6,7 @@ import org.junit.Test;
 import tools.Weapon;
 import treasure.Treasure;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class UndergroundLakeTest {
@@ -22,12 +23,34 @@ public class UndergroundLakeTest {
         weapon = new Weapon("Sting", 80, 3);
         treasure = new Treasure("Precious", 100);
         hobbit = new Burglar("Bilbo Baggins", 100, 100, weapon);
-        gollum = new Gollum();
+        gollum = new Gollum("Gollum", 50, 80);
     }
 
     @Test
     public void canAddGollumToEnemies(){
         undergroundLake.addGollum(gollum);
         assertTrue(undergroundLake.getEnemies().contains(gollum));
+    }
+
+    @Test
+    public void canAddBurglarToAdventurers(){
+        undergroundLake.addBurglar(hobbit);
+        assertTrue(undergroundLake.getAdventurers().contains(hobbit));
+    }
+
+    @Test
+    public void canAddTreasureToTreasure(){
+        undergroundLake.addTreasure(treasure);
+        assertTrue(undergroundLake.getTreasure().contains(treasure));
+    }
+
+    @Test
+    public void burglarBurglesTreasure(){
+        undergroundLake.addGollum(gollum);
+        undergroundLake.addBurglar(hobbit);
+        undergroundLake.addToTreasure(treasure);
+       hobbit.burgle(treasure, undergroundLake);
+       assertEquals(0, undergroundLake.getTreasure().size());
+       assertTrue(hobbit.getPocket().contains(treasure));
     }
 }
