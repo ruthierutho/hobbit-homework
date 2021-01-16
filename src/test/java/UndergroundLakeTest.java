@@ -48,7 +48,7 @@ public class UndergroundLakeTest {
     public void burglarBurglesTreasure(){
         undergroundLake.addGollum(gollum);
         undergroundLake.addBurglar(hobbit);
-        undergroundLake.addToTreasure(treasure);
+        undergroundLake.addTreasure(treasure);
        hobbit.burgle(treasure, undergroundLake);
        assertEquals(0, undergroundLake.getTreasure().size());
        assertTrue(hobbit.getPocket().contains(treasure));
