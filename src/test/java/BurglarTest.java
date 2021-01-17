@@ -1,3 +1,4 @@
+import Places.UndergroundLake;
 import characters.adventurers.Burglar;
 import characters.enemies.Goblin;
 import org.junit.Before;
@@ -7,6 +8,7 @@ import tools.Spell;
 import tools.Weapon;
 import treasure.Treasure;
 
+
 import static org.junit.Assert.assertEquals;
 
 public class BurglarTest {
@@ -15,11 +17,12 @@ public class BurglarTest {
     Goblin goblin;
     Treasure treasure;
     Riddle riddle;
+    UndergroundLake undergroundLake;
 
     @Before
     public void setUp(){
         weapon = new Weapon("Sting", 80, 3);
-        treasure = new Treasure("Precious", 100);
+        treasure = new Treasure("Ring", 100);
         hobbit = new Burglar("Bilbo Baggins", 100, 100, weapon);
         goblin = new Goblin("Grob", 90, 100, 80);
 
@@ -59,6 +62,13 @@ public class BurglarTest {
     public void canGuessAnswer__false(){
         riddle = hobbit.setRiddle("A mountain", "What has roots as nobody sees, Is taller than trees, Up, up it goes, And yet never grows?");
         assertEquals(false, hobbit.guessRiddle(riddle, "Dark"));
+    }
+
+    @Test
+    public void canTurnInvisible(){
+        hobbit.addToPocket(treasure);
+        boolean turnInvisible = hobbit.putOnRing(treasure);
+        assertEquals(true, turnInvisible);
     }
 
 }

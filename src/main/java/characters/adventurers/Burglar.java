@@ -71,4 +71,11 @@ public class Burglar extends Character implements IFight, IRiddle {
     }
 
 
+    public boolean putOnRing(Treasure treasure) {
+        if (!pocket.contains(treasure) && treasure.getName() == "Ring"){
+            return false;
+        }
+        return true;
+
+    }
 }

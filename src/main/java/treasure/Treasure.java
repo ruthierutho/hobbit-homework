@@ -11,4 +11,11 @@ public class Treasure {
     }
 
 
+    public String getName() {
+        return name;
+    }
+
+    public int getValue() {
+        return value;
+    }
 }
