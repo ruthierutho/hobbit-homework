@@ -63,9 +63,23 @@ public class UndergroundLakeTest {
         assertEquals(true, guess);
     }
 
+    @Test
     public void gollumSetsRiddleBurglarAnswers__false(){
         riddle = gollum.setRiddle("Wind", "Voiceless it cries, Wingless flutters, Toothless bites, Mouthless mutters");
         boolean guess = hobbit.guessRiddle(riddle, "Dark");
+        assertEquals(false, guess);
+    }
+
+    @Test
+    public void burglarCanSetRiddleGollumAnswers__true(){
+        riddle = hobbit.setRiddle("An egg", "A box without hinges, key, or lid, Yet golden treasure inside is hid");
+        boolean guess = gollum.guessRiddle(riddle, "An egg");
+        assertEquals(true, guess);
+    }
+
+    @Test public void burglarCanSetRiddleGollumAnswers__false(){
+        riddle = hobbit.setRiddle("Ring", "What's in my pocket?");
+        boolean guess = gollum.guessRiddle(riddle, "Handses");
         assertEquals(false, guess);
     }
 
