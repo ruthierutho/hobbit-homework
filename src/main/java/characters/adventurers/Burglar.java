@@ -5,6 +5,7 @@ import Places.UndergroundLake;
 import behaviours.IFight;
 import behaviours.IRiddle;
 import characters.Character;
+import tools.Riddle;
 import tools.Weapon;
 import treasure.Treasure;
 
@@ -55,13 +56,17 @@ public class Burglar extends Character implements IFight, IRiddle {
     }
 
     @Override
-    public void setRiddle(){
+    public String setRiddle(Riddle riddle){
+       return riddle.getQuestion();
 
     }
 
     @Override
-    public void guessRiddle() {
-
+    public boolean guessRiddle(Riddle riddle, String guess) {
+        if (riddle.getAnswer() != guess){
+            return false;
+        }
+        return true;
     }
 
 

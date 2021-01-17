@@ -22,7 +22,7 @@ public class BurglarTest {
         treasure = new Treasure("Precious", 100);
         hobbit = new Burglar("Bilbo Baggins", 100, 100, weapon);
         goblin = new Goblin("Grob", 90, 100, 80);
-        riddle = new Riddle(riddles);
+        riddle = new Riddle("What has roots as nobody sees, Is taller than trees, Up, up it goes, And yet never grows?", "A mountain");
     }
 
     @Test
@@ -45,8 +45,17 @@ public class BurglarTest {
 
     @Test
     public void canSetARiddle(){
-        String newRiddle = riddles.get
-        hobbit.setRiddle();
+        hobbit.setRiddle(riddle);
+        assertEquals("What has roots as nobody sees, Is taller than trees, Up, up it goes, And yet never grows?", riddle.getQuestion());
+    }
 
+    @Test
+    public void canGuessAnswer__true(){
+        assertEquals(true, hobbit.guessRiddle(riddle, "A mountain"));
+    }
+
+    @Test
+    public void canGuessAnswer__false(){
+        assertEquals(false, hobbit.guessRiddle(riddle, "Dark"));
     }
 }
