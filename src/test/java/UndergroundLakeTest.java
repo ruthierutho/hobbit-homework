@@ -83,5 +83,15 @@ public class UndergroundLakeTest {
         assertEquals(false, guess);
     }
 
+    @Test public void canRunUndergroundLake(){
+        undergroundLake.addGollum(gollum);
+        undergroundLake.addBurglar(hobbit);
+        undergroundLake.addTreasure(treasure);
+        hobbit.burgle(treasure, undergroundLake);
+        riddle = gollum.setRiddle("A mountain", "What has roots as nobody sees, Is taller than trees, Up, up it goes, And yet never grows?");
+        boolean guess = hobbit.guessRiddle(riddle, "A mountain");
+
+    }
+
 
 }

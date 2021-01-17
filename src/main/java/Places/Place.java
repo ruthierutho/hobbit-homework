@@ -51,6 +51,10 @@ public abstract class Place {
         this.adventurers.add(character);
     }
 
+    public void removeFromAdventurers(Character character){
+        this.adventurers.remove(character);
+    }
+
     public void addToTreasure(Treasure treasure){
         this.treasure.add(treasure);
     }
