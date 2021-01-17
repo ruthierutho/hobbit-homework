@@ -4,7 +4,7 @@ import tools.Riddle;
 
 public interface IRiddle {
 
-    String setRiddle(Riddle riddle);
+    Riddle setRiddle(String answer, String question);
 
     boolean guessRiddle(Riddle riddle, String guess);
 }

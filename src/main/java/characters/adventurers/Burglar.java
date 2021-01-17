@@ -56,8 +56,9 @@ public class Burglar extends Character implements IFight, IRiddle {
     }
 
     @Override
-    public String setRiddle(Riddle riddle){
-       return riddle.getQuestion();
+    public Riddle setRiddle(String answer, String question){
+        Riddle riddle = new Riddle(question, answer);
+        return riddle;
 
     }
 

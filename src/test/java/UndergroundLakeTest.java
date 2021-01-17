@@ -3,6 +3,7 @@ import characters.adventurers.Burglar;
 import characters.enemies.Gollum;
 import org.junit.Before;
 import org.junit.Test;
+import tools.Riddle;
 import tools.Weapon;
 import treasure.Treasure;
 
@@ -16,6 +17,7 @@ public class UndergroundLakeTest {
     Gollum gollum;
     Weapon weapon;
     Treasure treasure;
+    Riddle riddle;
 
     @Before
     public void setUp(){
@@ -53,4 +55,19 @@ public class UndergroundLakeTest {
        assertEquals(0, undergroundLake.getTreasure().size());
        assertTrue(hobbit.getPocket().contains(treasure));
     }
+
+    @Test
+    public void gollumSetsRiddleBurglarAnswers__true(){
+        riddle = gollum.setRiddle("Wind", "Voiceless it cries, Wingless flutters, Toothless bites, Mouthless mutters");
+        boolean guess = hobbit.guessRiddle(riddle, "Wind");
+        assertEquals(true, guess);
+    }
+
+    public void gollumSetsRiddleBurglarAnswers__false(){
+        riddle = gollum.setRiddle("Wind", "Voiceless it cries, Wingless flutters, Toothless bites, Mouthless mutters");
+        boolean guess = hobbit.guessRiddle(riddle, "Dark");
+        assertEquals(false, guess);
+    }
+
+
 }
