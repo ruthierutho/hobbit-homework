@@ -2,6 +2,7 @@ import characters.adventurers.Burglar;
 import characters.enemies.Goblin;
 import org.junit.Before;
 import org.junit.Test;
+import tools.Riddle;
 import tools.Spell;
 import tools.Weapon;
 import treasure.Treasure;
@@ -13,6 +14,7 @@ public class BurglarTest {
     Weapon weapon;
     Goblin goblin;
     Treasure treasure;
+    Riddle riddle;
 
     @Before
     public void setUp(){
@@ -20,6 +22,7 @@ public class BurglarTest {
         treasure = new Treasure("Precious", 100);
         hobbit = new Burglar("Bilbo Baggins", 100, 100, weapon);
         goblin = new Goblin("Grob", 90, 100, 80);
+        riddle = new Riddle(riddles);
     }
 
     @Test
@@ -41,8 +44,9 @@ public class BurglarTest {
     }
 
     @Test
-    public void canBurgleAPlace(){
-
+    public void canSetARiddle(){
+        String newRiddle = riddles.get
+        hobbit.setRiddle();
 
     }
 }

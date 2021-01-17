@@ -1,8 +1,10 @@
 package behaviours;
 
+import tools.Riddle;
+
 public interface IRiddle {
 
-    void setRiddle();
+    void setRiddle(Riddle riddle);
 
-    void guessRiddle();
+    void guessRiddle(Riddle riddle);
 }
